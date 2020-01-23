@@ -39,8 +39,8 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
  * TODO : Update Metadata
  *
  * @AUTHOR : JOHN MELODY MELISSA
- * @INSPIRED : GIRLFRIEND
- * @TYPE: MACHINE LEARNING
+ * @INSPIRED : Sin Dee, My Babe
+ * @TYPE: MACHINE LEARNING || Facial Recognition
  */
 
 public class MainActivity extends AppCompatActivity {
