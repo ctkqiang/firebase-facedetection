@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Facial Recognition</string>
+    <string name="app_name">CAMERA_FIREBASE</string>
     <string name="action_gallery">Gallery</string>
     <string name="storage_denied">This app needs to access files on your device.</string>
     <string name="action_camera">Camera</string>

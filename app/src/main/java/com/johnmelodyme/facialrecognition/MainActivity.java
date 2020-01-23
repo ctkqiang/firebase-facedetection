@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Rect;
+import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +22,7 @@ import com.google.firebase.ml.vision.common.FirebaseVisionImage;
 import com.google.firebase.ml.vision.face.FirebaseVisionFace;
 import com.google.firebase.ml.vision.face.FirebaseVisionFaceDetector;
 import com.google.firebase.ml.vision.face.FirebaseVisionFaceDetectorOptions;
+import com.johnmelodyme.facialrecognition.Screen.Screenshot;
 import com.johnmelodyme.facialrecognition.VisionHelper.GraphicOverlay;
 import com.johnmelodyme.facialrecognition.VisionHelper.ReactOverlay;
 import com.wonderkiln.camerakit.CameraKitError;
@@ -28,7 +31,6 @@ import com.wonderkiln.camerakit.CameraKitEventListener;
 import com.wonderkiln.camerakit.CameraKitImage;
 import com.wonderkiln.camerakit.CameraKitVideo;
 import com.wonderkiln.camerakit.CameraView;
-
 import java.util.List;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
@@ -37,7 +39,7 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
  * TODO : Update Metadata
  *
  * @AUTHOR : JOHN MELODY MELISSA
- * @INSPIRED :
+ * @INSPIRED : GIRLFRIEND
  * @TYPE: MACHINE LEARNING
  */
 
@@ -86,13 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 new FirebaseVisionFaceDetectorOptions.Builder()
                         .setContourMode(FirebaseVisionFaceDetectorOptions.ALL_CONTOURS)
                         .build();
-
-
-        SweetAlertDialog pDialog = new SweetAlertDialog(MainActivity.this, SweetAlertDialog.PROGRESS_TYPE);
-        pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
-        pDialog.setTitleText("Loading....");
-        pDialog.setCancelable(false);
-        pDialog.show();
+//
 
         DETECT_FACE_BTN.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,6 +96,9 @@ public class MainActivity extends AppCompatActivity {
                 CAMERAVIEW.start();
                 CAMERAVIEW.captureImage();
                 GRAPHICAL_OVERLAY.clear();
+
+                Bitmap b;
+                b = Screenshot.takescreenshotOfRootView(CAMERAVIEW);
             }
         });
 
@@ -155,6 +154,7 @@ public class MainActivity extends AppCompatActivity {
                         .setTitleText("Oops...")
                         .setContentText(ERR)
                         .show();
+
             }
         });
     }
