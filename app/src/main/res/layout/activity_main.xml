@@ -6,15 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/a"
-        android:layout_width="204dp"
-        android:layout_height="56dp"
-        android:text="Hello World!"
-        android:textAlignment="center"
+    <com.wonderkiln.camerakit.CameraView
+        android:id="@+id/cameraView"
+        android:layout_width="0dp"
+        android:layout_height="557dp"
+        app:layout_constraintBottom_toTopOf="@+id/detect_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="643dp" />
+        app:layout_constraintTop_toTopOf="parent">
 
+        <com.johnmelodyme.facialrecognition.VisionHelper.GraphicOverlay
+            android:id="@+id/GRAPHIC_OVERLAY"
+            android:layout_width="414dp"
+            android:layout_height="561dp" />
+    </com.wonderkiln.camerakit.CameraView>
+
+    <Button
+        android:id="@+id/detect_btn"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/colorPrimary"
+        android:text="@string/detect"
+        android:textColor="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cameraView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
